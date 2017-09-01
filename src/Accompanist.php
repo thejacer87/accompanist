@@ -686,7 +686,7 @@ class Accompanist implements JsonSerializable
 
   /**
    * @param string $name
-   * @param string $path
+   * @param mixed $path
    *
    * @return $this
    */
@@ -722,16 +722,33 @@ class Accompanist implements JsonSerializable
     }
 
   /**
-   * @param \stdClass $extra
+   * @param string $extra
+   * @param mixed $value
    *
    * @return $this
    */
-    public function setExtra($extra)
-    {
-        $this->extra = $extra;
-
-        return $this;
+  public function addExtra($extra, $value)
+  {
+    if (isset($this->extra->$extra)) {
+      $this->extra->$extra[] = $value;
+    } else {
+      $this->extra->$extra = $value;
     }
+
+    return $this;
+  }
+
+  /**
+   * @param string $extra
+   *
+   * @return $this
+   */
+  public function removeExtra($extra)
+  {
+    unset($this->extra->$extra);
+
+    return $this;
+  }
 
   /**
    * @return mixed
@@ -836,3 +853,4 @@ class Accompanist implements JsonSerializable
         }
     }
 }
+
