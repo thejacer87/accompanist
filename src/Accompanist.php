@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class Accompanist implements JsonSerializable
 {
-  
+
     protected $name = '';
     protected $description = '';
     protected $version = '';
@@ -35,12 +35,12 @@ class Accompanist implements JsonSerializable
     protected $archive;
     protected $nonFeatureBranches = [];
     protected $featureBranches = [];
-  
+
     public function __construct($name, $description = '')
     {
         $this->setName($name);
         $this->setDescription($description);
-    
+
         $this->require = new \stdClass();
         $this->requireDev = new \stdClass();
         $this->conflict = new \stdClass();
@@ -56,83 +56,83 @@ class Accompanist implements JsonSerializable
         $this->archive = new \stdClass();
         $this->support = new \stdClass();
     }
-  
+
   /**
    * {@inheritdoc}
    */
     public function jsonSerialize()
     {
         $json = [
-        'name' => $this->name,
-        'description' => $this->description,
-        'type' => $this->type,
-        'require' => $this->require,
-        'require-dev' => $this->requireDev,
-        'conflict' => $this->conflict,
-        'replace' => $this->replace,
-        'provide' => $this->provide,
-        'suggest' => $this->suggest,
-        'autoload' => $this->autoload,
-        'autoload-dev' => $this->autoloadDev,
-        'minimum-stability' => $this->minimumStability,
-        'prefer-stable' => $this->preferStable,
-        'repositories' => $this->repositories,
-        'config' => $this->config,
-        'scripts' => $this->scripts,
-        'extra' => $this->extra,
+            'name' => $this->name,
+            'description' => $this->description,
+            'type' => $this->type,
+            'require' => $this->require,
+            'require-dev' => $this->requireDev,
+            'conflict' => $this->conflict,
+            'replace' => $this->replace,
+            'provide' => $this->provide,
+            'suggest' => $this->suggest,
+            'autoload' => $this->autoload,
+            'autoload-dev' => $this->autoloadDev,
+            'minimum-stability' => $this->minimumStability,
+            'prefer-stable' => $this->preferStable,
+            'repositories' => $this->repositories,
+            'config' => $this->config,
+            'scripts' => $this->scripts,
+            'extra' => $this->extra,
         ];
-    
+
         if (!empty($this->version)) {
             $json['version'] = $this->version;
         }
-    
+
         if (!empty($this->keywords)) {
             $json['keywords'] = $this->keywords;
         }
-    
+
         if (!empty($this->homepage)) {
             $json['homepage'] = $this->homepage;
         }
-    
+
         if (!empty($this->time)) {
             $json['time'] = $this->time;
         }
-    
+
         if (!empty($this->license)) {
             $json['license'] = $this->license;
         }
-    
+
         if (!empty($this->authors)) {
             $json['authors'] = $this->authors;
         }
-    
+
         if (!empty($this->support)) {
             $json['support'] = $this->support;
         }
-    
+
         if (!empty($this->extra)) {
             $json['extra'] = $this->extra;
         }
-    
+
         if (!empty($this->bin)) {
             $json['bin'] = $this->bin;
         }
-    
+
         if (!empty($this->archive)) {
             $json['archive'] = $this->archive;
         }
-    
+
         if (!empty($this->nonFeatureBranches)) {
             $json['non-feature-branches'] = $this->nonFeatureBranches;
         }
-    
+
         if (!empty($this->featureBranches)) {
             $json['feature-braches'] = $this->featureBranches;
         }
-    
+
         return $json;
     }
-  
+
   /**
    * @return string
    */
@@ -140,7 +140,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->name;
     }
-  
+
   /**
    * @param string $name
    *
@@ -149,10 +149,10 @@ class Accompanist implements JsonSerializable
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -160,7 +160,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->description;
     }
-  
+
   /**
    * @param string $description
    *
@@ -169,10 +169,10 @@ class Accompanist implements JsonSerializable
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -180,7 +180,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->version;
     }
-  
+
   /**
    * @param string $version
    *
@@ -189,10 +189,10 @@ class Accompanist implements JsonSerializable
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -200,7 +200,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->type;
     }
-  
+
   /**
    * @param string $type
    *
@@ -209,10 +209,10 @@ class Accompanist implements JsonSerializable
     public function setType($type)
     {
         $this->type = $type;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -220,7 +220,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->keywords;
     }
-  
+
   /**
    * @param string $keyword
    *
@@ -229,10 +229,10 @@ class Accompanist implements JsonSerializable
     public function addKeyword($keyword)
     {
         $this->keywords[$keyword] = $keyword;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $keyword
    *
@@ -241,10 +241,10 @@ class Accompanist implements JsonSerializable
     public function removeKeyword($keyword)
     {
         unset($this->keywords[$keyword]);
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -252,7 +252,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->homepage;
     }
-  
+
   /**
    * @param string $homepage
    *
@@ -261,10 +261,10 @@ class Accompanist implements JsonSerializable
     public function setHomepage($homepage)
     {
         $this->homepage = $homepage;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -272,7 +272,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->time;
     }
-  
+
   /**
    * @param string $time
    *
@@ -281,10 +281,10 @@ class Accompanist implements JsonSerializable
     public function setTime($time)
     {
         $this->time = $time;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -292,7 +292,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->license;
     }
-  
+
   /**
    * @param string $license
    *   Usually the license will be one of
@@ -312,10 +312,10 @@ class Accompanist implements JsonSerializable
     public function setLicense($license)
     {
         $this->license = $license;
-    
+
         return $this;
     }
-  
+
   /**
    * @return array
    */
@@ -323,7 +323,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->authors;
     }
-  
+
   /**
    * @param array $authors
    *
@@ -332,10 +332,10 @@ class Accompanist implements JsonSerializable
     public function setAuthors($authors)
     {
         $this->authors = $authors;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -343,7 +343,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->support;
     }
-  
+
   /**
    * @param mixed $support
    *
@@ -352,10 +352,10 @@ class Accompanist implements JsonSerializable
     public function setSupport($support)
     {
         $this->support = $support;
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -363,7 +363,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->require;
     }
-  
+
   /**
    * @param string $require
    * @param string $version
@@ -373,10 +373,10 @@ class Accompanist implements JsonSerializable
     public function addRequire($require, $version = '*')
     {
         $this->require->$require = $version;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $require
    *
@@ -385,10 +385,10 @@ class Accompanist implements JsonSerializable
     public function removeRequire($require)
     {
         unset($this->require->$require);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -396,7 +396,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->requireDev;
     }
-  
+
   /**
    * @param string $require
    * @param string $version
@@ -406,10 +406,10 @@ class Accompanist implements JsonSerializable
     public function addRequireDev($require, $version = '*')
     {
         $this->requireDev->$require = $version;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $require
    *
@@ -418,10 +418,10 @@ class Accompanist implements JsonSerializable
     public function removeRequireDev($require)
     {
         unset($this->requireDev->$require);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -429,7 +429,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->conflict;
     }
-  
+
   /**
    * @param array $conflict
    *
@@ -438,10 +438,10 @@ class Accompanist implements JsonSerializable
     public function setConflict($conflict)
     {
         $this->conflict = $conflict;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -449,7 +449,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->replace;
     }
-  
+
   /**
    * @param mixed $replace
    *
@@ -458,10 +458,10 @@ class Accompanist implements JsonSerializable
     public function setReplace($replace)
     {
         $this->replace = $replace;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -469,7 +469,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->provide;
     }
-  
+
   /**
    * @param mixed $provide
    *
@@ -478,10 +478,10 @@ class Accompanist implements JsonSerializable
     public function setProvide($provide)
     {
         $this->provide = $provide;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -489,7 +489,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->suggest;
     }
-  
+
   /**
    * @param mixed $suggest
    *
@@ -498,10 +498,10 @@ class Accompanist implements JsonSerializable
     public function setSuggest($suggest)
     {
         $this->suggest = $suggest;
-    
+
         return $this;
     }
-  
+
   /**
    * @return string
    */
@@ -509,7 +509,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->minimumStability;
     }
-  
+
   /**
    * @param string $minimum_stability
    *   Must be one of
@@ -526,16 +526,16 @@ class Accompanist implements JsonSerializable
     public function setMinimumStability($minimum_stability)
     {
         $acceptable_values = ['dev', 'alpha', 'beta', 'RC', 'stable'];
-    
+
         if (in_array($minimum_stability, $acceptable_values)) {
             $this->minimumStability = $minimum_stability;
         } else {
             throw new \Exception('Minimum Stability must be one of dev, alpha, beta, RC or stable');
         }
-    
+
         return $this;
     }
-  
+
   /**
    * @return bool
    */
@@ -543,7 +543,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->preferStable;
     }
-  
+
   /**
    * @param bool $prefer_stable
    *
@@ -552,10 +552,10 @@ class Accompanist implements JsonSerializable
     public function setPreferStable($prefer_stable)
     {
         $this->preferStable = $prefer_stable;
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -563,7 +563,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->autoload;
     }
-  
+
   /**
    * @param \stdClass $value
    *
@@ -572,10 +572,10 @@ class Accompanist implements JsonSerializable
     public function setAutoload($value)
     {
         $this->autoload = $value;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $name
    * @param mixed $value
@@ -585,10 +585,10 @@ class Accompanist implements JsonSerializable
     public function addAutoload($name, $value)
     {
         $this->autoload->$name = $value;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $name
    *
@@ -597,10 +597,10 @@ class Accompanist implements JsonSerializable
     public function removeAutoload($name)
     {
         unset($this->autoload->$name);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -608,7 +608,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->autoloadDev;
     }
-  
+
   /**
    * @param string $name
    * @param mixed $value
@@ -618,10 +618,10 @@ class Accompanist implements JsonSerializable
     public function addAutoloadDev($name, $value)
     {
         $this->autoloadDev->$name = $value;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $name
    *
@@ -630,10 +630,10 @@ class Accompanist implements JsonSerializable
     public function removeAutoloadDev($name)
     {
         unset($this->autoloadDev->$name);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -641,7 +641,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->repositories;
     }
-  
+
   /**
    * @param string $name
    * @param string $type
@@ -652,10 +652,10 @@ class Accompanist implements JsonSerializable
     public function addRepository($name, $type, $url)
     {
         $this->repositories->$name = ['type' => $type, 'url' => $url];
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $name
    *
@@ -664,10 +664,10 @@ class Accompanist implements JsonSerializable
     public function removeRepository($name)
     {
         unset($this->repositories[$name]);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -675,7 +675,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->config;
     }
-  
+
   /**
    * @param array $config
    *
@@ -684,10 +684,10 @@ class Accompanist implements JsonSerializable
     public function setConfig($config)
     {
         $this->config = $config;
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -695,7 +695,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->scripts;
     }
-  
+
   /**
    * @param string $name
    * @param string $path
@@ -709,10 +709,10 @@ class Accompanist implements JsonSerializable
         } else {
             $this->scripts->$name = [$path];
         }
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $name
    *
@@ -721,10 +721,10 @@ class Accompanist implements JsonSerializable
     public function removeScript($name)
     {
         unset($this->scripts->$name);
-    
+
         return $this;
     }
-  
+
   /**
    * @return \stdClass
    */
@@ -732,7 +732,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->extra;
     }
-  
+
   /**
    * @param \stdClass $extra
    *
@@ -741,10 +741,10 @@ class Accompanist implements JsonSerializable
     public function setExtra($extra)
     {
         $this->extra = $extra;
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $extra
    * @param mixed $value
@@ -758,10 +758,10 @@ class Accompanist implements JsonSerializable
         } else {
             $this->extra->$extra = $value;
         }
-    
+
         return $this;
     }
-  
+
   /**
    * @param string $extra
    *
@@ -770,10 +770,10 @@ class Accompanist implements JsonSerializable
     public function removeExtra($extra)
     {
         unset($this->extra->$extra);
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -781,7 +781,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->bin;
     }
-  
+
   /**
    * @param mixed $bin
    *
@@ -790,10 +790,10 @@ class Accompanist implements JsonSerializable
     public function setBin($bin)
     {
         $this->bin = $bin;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -801,7 +801,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->archive;
     }
-  
+
   /**
    * @param mixed $archive
    *
@@ -810,10 +810,10 @@ class Accompanist implements JsonSerializable
     public function setArchive($archive)
     {
         $this->archive = $archive;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -821,7 +821,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->nonFeatureBranches;
     }
-  
+
   /**
    * @param mixed $nonFeatureBranches
    *
@@ -830,10 +830,10 @@ class Accompanist implements JsonSerializable
     public function setNonFeatureBranches($nonFeatureBranches)
     {
         $this->nonFeatureBranches = $nonFeatureBranches;
-    
+
         return $this;
     }
-  
+
   /**
    * @return mixed
    */
@@ -841,7 +841,7 @@ class Accompanist implements JsonSerializable
     {
         return $this->featureBranches;
     }
-  
+
   /**
    * @param mixed $featureBranches
    *
@@ -850,15 +850,15 @@ class Accompanist implements JsonSerializable
     public function setFeatureBranches($featureBranches)
     {
         $this->featureBranches = $featureBranches;
-    
+
         return $this;
     }
-  
+
     public function generateJSON()
     {
         return json_encode($this, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
-  
+
   /**
    * @param string $folder
    */
@@ -866,17 +866,17 @@ class Accompanist implements JsonSerializable
     {
         if (!empty($location)) {
             @mkdir($location);
-      
+
             if (substr($location, -1) != '/') {
                 $location .= '/';
             }
-      
+
             file_put_contents($location . 'composer.json', $this->generateJSON());
         } else {
             throw new \Exception('A location must be provided when generating a composer.json file');
         }
     }
-  
+
   /**
    * @param string $url
    *
@@ -945,7 +945,7 @@ class Accompanist implements JsonSerializable
                     break;
             }
         }
-    
+
         return $this;
     }
 }
